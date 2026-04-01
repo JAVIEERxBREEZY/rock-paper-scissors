@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piedra, papel o tijera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Simulador dinámico</p>
+      <h1>Piedra, papel o tijera en movimiento</h1>
+      <p class="intro">
+        Cincuenta fichas recorren la arena. Cuando dos se cruzan, se resuelve el duelo:
+        piedra gana a tijera, tijera gana a papel y papel gana a piedra.
+      </p>
+      <div class="controls">
+        <button id="toggleButton" class="primary-button" type="button">Pausar</button>
+        <button id="resetButton" class="secondary-button" type="button">Reiniciar</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="arena-card">
+        <div class="card-header">
+          <div>
+            <p class="card-label">Arena</p>
+            <h2>Último símbolo en pie</h2>
+          </div>
+          <span id="statusBadge" class="status-badge">Simulación activa</span>
+        </div>
+        <div id="arena" class="arena" aria-label="Tablero del juego"></div>
+      </div>
+
+      <aside class="panel">
+        <div class="panel-card">
+          <p class="card-label">Marcador</p>
+          <h2>Conteo por tipo</h2>
+          <div class="score-list">
+            <article class="score-item rock">
+              <div class="score-icon">🪨</div>
+              <div>
+                <h3>Piedra</h3>
+                <p>Resiste a tijera</p>
+              </div>
+              <strong id="rockCount">0</strong>
+            </article>
+            <article class="score-item paper">
+              <div class="score-icon">📄</div>
+              <div>
+                <h3>Papel</h3>
+                <p>Envuelve a piedra</p>
+              </div>
+              <strong id="paperCount">0</strong>
+            </article>
+            <article class="score-item scissors">
+              <div class="score-icon">✂️</div>
+              <div>
+                <h3>Tijera</h3>
+                <p>Corta a papel</p>
+              </div>
+              <strong id="scissorsCount">0</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <p class="card-label">Resumen</p>
+          <h2>Estado de la partida</h2>
+          <p id="summaryText" class="summary-text">
+            La batalla está equilibrada. Observa cómo cambian los bandos en cada choque.
+          </p>
+          <div id="winnerBanner" class="winner-banner" hidden></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
